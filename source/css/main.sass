@@ -1,0 +1,706 @@
+@import 'colors'
+@import 'mixins'
+
+*
+  box-sizing: border-box
+  // line-height: 1
+.c-wrapper ::-moz-selection
+  background: $orange
+  color: #fff
+.c-wrapper ::selection
+  background: $orange
+  color: #fff
+
+.c-container
+  width: 980px
+  margin: 0 auto
+  position: relative
+  background: #fff
+  font-family: 'm-light'
+  p, h2
+    margin: 15px 0
+  @include bp-table
+    width: 100%
+    overflow: hidden
+
+.c-main
+  position: relative
+
+.c-text
+  font-size: 22px
+  color: #fff
+  line-height: 1.227
+  @include bp-table
+    font-size: 4vw
+  &-link, a
+    color: inherit
+    font-family: "m-bold"
+.c-title
+  font-family: 'm-bold'
+  font-size: 75px
+  color: #fff
+  line-height: 0.3
+  text-transform: uppercase
+  white-space: nowrap
+  @include bp-table
+    line-height: 1
+    font-size: 8vw
+
+.c-link
+  display: inline-block
+  padding: 6px
+  margin: 0
+  border: 2px solid #818285
+  text-decoration: none
+  text-align: center
+  cursor: pointer
+  &-inner
+    margin: 0
+    padding: 15px 45px
+    background-color: $grey
+    text-transform: uppercase
+    color: #fff
+    font-size: 30px
+    line-height: 1
+    white-space: nowrap
+    border: 0
+    outline: 0
+    cursor: pointer
+    @include transition(all 0.7s ease)
+    @include bp-table
+      font-size: 5vw
+      padding: 3vw 10vw
+    &:hover
+      background-color: lighten($orange, 3%)
+      color: $darkGrey
+
+
+
+.c-modal-prizes
+  width: 980px
+  height: 601px
+  display: none
+  @include bp-table
+    width: 100%
+    height: 100%
+
+.c-modal-reg
+  width: 400px
+  &__auth
+    padding: 5px 0 1px
+  &__title
+    font-size: 16px
+    font-family: 'k-bold'
+    line-height: 1.3
+    color: $darkGrey
+    text-transform: uppercase
+    text-align: center
+    @include bp-table
+      font-size: 4vw
+  &__social
+    display: flex
+    align-items: center
+    justify-content: center
+  &__content
+    padding: 25px 40px
+    @include bp-table
+      padding: 30px 3px
+  &__inner
+    display: flex
+    flex-direction: column
+    padding: 20px
+    input
+      width: 100%
+      margin-bottom: 20px
+      font-size: 16px
+      font-family: "k-reg"
+      color: #000
+      background: #fff
+      line-height: 1.5
+      border: 0
+      outline: 0
+      border-bottom: 1px solid #000
+      border-radius: 0
+      @include bp-table
+        font-size: 4vw
+  form
+    text-align: center
+    @include bp-table
+      font-size: 4vw
+  a
+    color: inherit
+  .c-link
+    margin-top: 30px
+    &-inner
+      font-size: 16px
+      @include bp-table
+        font-size: 4vw
+      &:hover
+        background-color: #fff
+
+
+
+
+
+// .c-modal-photo
+//   width: 400px
+//   &__content
+//     padding: 45px 65px
+//     @include bp-table
+//       padding: 60px 3px
+//   &__btn
+//     position: relative
+//     height: 270px
+//     background: url('../assets/img/up.png') no-repeat
+//     background-size: 100%
+//     margin-bottom: 30px
+//     display: flex
+//     align-items: center
+//     justify-content: center
+//     text-align: center
+//     @include bp-table
+//       height: 90vw
+//       width: 90vw
+//       margin: 0 auto 30px
+//     span
+//       font-size: 24px
+//       font-family: "k-bold"
+//       color: #fff
+//       text-transform: uppercase
+//       line-height: 1.364
+//   &__input
+//     position: absolute
+//     top: 0
+//     left: 0
+//     cursor: pointer
+//     z-index: 99
+//     outline: 0
+//     width: 100%
+//     height: 100%
+//     opacity: 0
+// .c-modal-final
+//   width: 400px
+//   &__content
+//     padding: 45px 0
+//     text-align: center
+//     p
+//       margin: 0
+//   &__title
+//     font-size: 16px
+//     font-family: 'k-bold'
+//     line-height: 1.3
+//     color: #000
+//     text-transform: uppercase
+//     text-align: center
+//     padding-bottom: 15px
+//     @include bp-table
+//       font-size: 4vw
+//   &__subtitle
+//     font-size: 16px
+//     font-family: 'k-reg'
+//     line-height: 2.711
+//     text-align: center
+//     @include bp-table
+//       font-size: 3.5vw
+//   &__sale
+//     background: #424242
+//     padding: 15px 0
+//     display: flex
+//     align-items: center
+//     justify-content: center
+//     margin-bottom: 30px
+//     span
+//       font-size: 21px
+//       font-family: Geometria, sans-serif
+//       font-weight: bold
+//       color: #fff
+//       text-transform: uppercase
+//       line-height: 2.066
+//       @include bp-table
+//         font-size: 5vw
+//   .c-modal__btn
+//     display: inline-block
+//     width: 70%
+
+.c-modal
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  background: #fff
+  overflow: hidden
+  box-shadow: 0px 7px 15px 0px rgba(21, 21, 21, 0.75)
+  z-index: 999
+  display: none
+  @include bp-table
+    width: 100%
+    height: auto
+    box-shadow: none
+  // &__btn
+  //   position: relative
+  //   display: block
+  //   min-width: 80%
+  //   margin: 0 auto
+  //   background: $orange
+  //   border: 0
+  //   outline: 0
+  //   border-radius: 0
+  //   padding: 15px 3%
+  //   color: #fff
+  //   font-size: 18px
+  //   font-family: "k-bold"
+  //   text-transform: uppercase
+  //   white-space: nowrap
+  //   text-decoration: none
+  //   cursor: pointer
+  //   z-index: 999
+  //   @include transition(all 0.3s ease)
+  //   @include bp-table
+  //     font-size: 4vw
+  //   &:hover
+  //     background: darken($orange, 10%)
+  &-wrapper
+    position: relative
+    width: 100%
+    height: 100%
+    &::after
+      content: ''
+      position: absolute
+      background: url('../assets/img/title-modal.png')  no-repeat
+      background-size: contain
+      top: 0
+      left: 0
+      width: 45px
+      height: 210px
+      @include bp-table
+        transform: rotate(90deg)
+        width: 35px
+        height: 200px
+        top: -70px
+        left: 50px
+
+.c-overlay
+  z-index: 3
+  position: fixed
+  background-color: transparent
+  opacity: 1
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  cursor: pointer
+  display: none
+
+.c-close
+  position: absolute
+  display: block
+  background: url('../assets/img/close.png') no-repeat
+  background-size: contain
+  background-position: center
+  width: 20px
+  height: 20px
+  top: 15px
+  right: 15px
+  cursor: pointer
+  z-index: 9999
+  @include bp-table
+    width: 30px
+    height: 30px
+
+.c-prizes
+  width: 80%
+  height: 100%
+  margin: 0 auto
+  padding: 55px 0
+  overflow: hidden
+  @include bp-table
+    width: 98%
+    .c-prizes__content
+      display: block
+  &__items
+    width: 75%
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0
+    list-style: none
+    @include bp-table
+      display: none
+    li
+      position: relative
+      font-size: em(24)
+      font-family: "mp-black-cn"
+      color: $grey
+      text-transform: uppercase
+      line-height: 1
+      text-align: center
+      cursor: pointer
+      @include transition(all 0.3s ease)
+    li.current
+      color: $orange
+      &::after
+        content: ''
+        position: absolute
+        border-bottom: 1px solid $orange
+        bottom: -3px
+        left: 0
+        width: 100%
+  &__content
+  	display: none
+  &__content
+    padding: 30px 0px
+    @include bp-table
+      padding: 3vw 0px
+    > p
+      display: none
+      position: relative
+      padding-bottom: 10px
+      font-size: 5vw
+      font-family: "mp-black-cn"
+      color: $grey
+      text-transform: uppercase
+      line-height: 1
+      text-align: center
+      cursor: pointer
+      @include transition(all 0.3s ease)
+      @include bp-table
+        display: block
+  &__img
+    max-width: 640px
+    height: 275px
+    text-align: center
+    img
+      max-width: 100%
+    @include bp-table
+      max-width: 100%
+      height: auto
+      padding-bottom: 5vw
+  &__text
+    width: 80%
+    margin: 0 auto
+    @include bp-table
+      width: 95%
+    p
+      font-size: 14px
+      font-family: "m-reg"
+      color: #000
+      text-transform: uppercase
+      line-height: 1.571
+      text-align: center
+      @include bp-table
+        font-size: 3.5vw
+    span
+      font-family: "m-bold"
+  &__content.current
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      @include bp-table
+        > p
+          color: $orange
+
+.c-intro
+  background: url('../assets/img/bg-intro.png') no-repeat
+  background-size: cover
+  background-position: top center
+  height: 475px
+  position: relative
+  @include bp-table
+    height: 47vw !important
+    background-size: contain
+  .c-title
+    position: absolute
+    right: 0
+    bottom: -93px
+    width: 70%
+    float: right
+    line-height: 0.7
+    @include bp-table
+      bottom: -23%
+      width: 74%
+    span:last-child
+      display: block
+      color: $grey
+      text-align: center
+      font-size: 146px
+      @include bp-table
+        font-size: 12vw
+  .c-text
+    padding: 30px 15px 20px 40px
+    @include bp-table
+      padding: 0
+.c-adv
+  width: 903px
+  float: right
+  margin: 80px auto 110px
+  background: $orange
+  padding: 20px 55px
+  @include bp-table
+    width: 92%
+    padding: 2vw 5vw
+    margin: 8% auto 10%
+  &__links
+    padding-top: 10px
+    display: flex
+    justify-content: space-around
+    @include bp-table
+      padding: 3vw 0
+      flex-direction: column
+      align-items: center
+      .c-link:last-child
+        width: 40vw
+        margin-top: 5vw
+  &__link
+    display: inline-block
+
+
+
+.c-photo
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  .c-link-inner
+    font-size: 55px
+    padding: 30px 85px
+    @include bp-table
+      font-size: 7vw
+      padding: 3vw 10vw
+    &:hover
+      background-color: #fff
+
+.c-main-content
+  position: relative
+  margin-top: 65px
+  padding-bottom: 15px
+  @include bp-table
+    margin-top: 6%
+  .c-title
+    font-size: 60px
+    background: $grey
+    padding: 40px 0 0
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 24vw
+    text-align: center
+    @include bp-table
+      height: 55vw
+      font-size: 7vw
+  &__items
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    padding: 145px 75px 0
+    position: relative
+    z-index: 9
+    @include bp-table
+      padding: 35% 7vw 0
+      flex-direction: column
+      align-items: center
+  &__item
+    flex: 1 1 400px
+    max-width: 400px
+    height: 310px
+    padding: 0
+    margin-bottom: 33px
+    @include bp-table
+      flex: 1 1 100%
+      width: 100%
+      max-width: 100%
+      height: 92vw
+      margin-bottom: 5vw
+  &__decor
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: url('../assets/img/bg.png') no-repeat
+    background-size: 100%
+    background-position: bottom
+    z-index: 0
+    @include bp-table
+      height: 100vw
+      top: 10%
+.c-item
+  &__img
+    max-width: 100%
+    max-height: 260px
+    overflow: hidden
+    @include bp-table
+      max-height: 80vw
+      height: 80vw
+    img
+      max-height: 100%
+      max-width: 100%
+      position: relative
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      @include bp-table
+        height: 100%
+  &__text
+    height: 100%
+    max-height: 40px
+    padding: 0 7px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    @include bp-table
+      max-height: 12vw
+      height: 12vw
+      padding: 0 1vw
+    span
+      font-size: 22px
+      line-height: 1.136
+      @include bp-table
+        font-size: 5vw
+    > div
+      display: flex
+      align-items: center
+      justify-content: space-between
+      button
+        width: 35px
+        height: 33px
+        background: url('../assets/img/like-sprite.png')
+        background-size: 75px
+        background-position: 0 0
+        border: 0
+        outline: none
+        cursor: pointer
+        &:hover
+          background-position: -38px 0
+        @include bp-table
+          width: 50px
+          height: 50px
+          background-size: 105px
+          &:hover
+            background-position: -53px 0
+        @include bp-max-480
+          width: 35px
+          height: 33px
+          background-size: 75px
+          &:hover
+            background-position: -38px 0
+
+.c-pagination
+  position: relative
+  z-index: 9
+  @include bp-table
+    padding: 0 8vw
+  &__list
+    list-style: none
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 10px 0
+    padding: 0
+    @include bp-table
+      justify-content: space-between
+  li
+    font-size: 22px
+    color: #fff
+    margin: 0 1px
+    width: 13px
+    @include transition(all 0.3s ease)
+    @include bp-table
+      color: #000
+      font-size: 6vw
+      width: auto
+      margin: 0
+    a
+      color: inherit
+      text-decoration: none
+    &:hover
+      font-family: 'm-bold'
+  .c-active
+    font-family: 'm-bold'
+
+
+
+.c-footer
+  padding: 5px 0 45px
+  @include bp-table
+    padding: 5vw 0 45px
+  &__title
+    font-size: 16px
+    font-family: 'k-bold'
+    color: $grey
+    text-transform: uppercase
+    text-align: center
+    @include bp-table
+      font-size: 4vw
+  &__social
+    display: flex
+    align-items: center
+    justify-content: center
+
+.c-social-icon
+  display: block
+  background: url('../assets/img/socials.png') no-repeat
+  border-radius: 50%
+  width: 60px
+  height: 60px
+  background-size: 500px
+  margin: 0 10px
+  @include bp-table
+    width: 80px
+    height: 80px
+    background-size: 660px
+    margin: 0 2vw
+  @include bp-max-480
+    width: 60px
+    height: 60px
+    background-size: 500px
+.c-vk
+  background-position: -375px 0
+  &:hover, &.c-icon-hover
+    background-position: -440px 0
+  @include bp-table
+    background-position: -494px 0
+    &:hover, &.c-icon-hover
+      background-position: -577px 0
+  @include bp-max-480
+    background-position: -375px 0
+    &:hover, &.c-icon-hover
+      background-position: -440px 0
+.c-fb
+  background-position: 0 0
+  &:hover, &.c-icon-hover
+    background-position: -62px 0
+  @include bp-table
+    background-position: 0 0
+    &:hover, &.c-icon-hover
+      background-position: -82px 0
+  @include bp-max-480
+    background-position: 0 0
+    &:hover, &.c-icon-hover
+      background-position: -62px 0
+.c-tw
+  background-position: -250px 0
+  &:hover, &.c-icon-hover
+    background-position: -312px 0
+  @include bp-table
+    background-position: -330px 0
+    &:hover, &.c-icon-hover
+      background-position: -412px 0
+  @include bp-max-480
+    background-position: -250px 0
+    &:hover, &.c-icon-hover
+      background-position: -312px 0
+.c-ok
+  background-position: -125px 0
+  &:hover, &.c-icon-hover
+    background-position: -188px 0
+  @include bp-table
+    background-position: -165px 0
+    &:hover, &.c-icon-hover
+      background-position: -248px 0
+  @include bp-max-480
+    background-position: -125px 0
+    &:hover, &.c-icon-hover
+      background-position: -188px 0
